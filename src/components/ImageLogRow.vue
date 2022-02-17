@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td scope="col">{{ session.timeStart }}</td>
+    <td scope="col">{{ session.timeStart.substr(0, 10) }}</td>
     <td scope="col">{{ session.target }}</td>
     <td scope="col">{{ session.focalLength }}</td>
     <td scope="col">{{ session.guider ? '&#10004;' : '' }}</td>
@@ -13,35 +13,26 @@
     <td scope="col">{{ session.offset }}</td>
     <td scope="col">{{ session.binning }}</td>
     <td scope="col">{{ session.subExposureQty }}</td>
-    <td scope="col">{{ session.subExposureTime }}</td>
-    <td scope="col"></td>
+    <td scope="col">{{ session.subexposureTime }}</td>
+    <td scope="col">
+      <button class="btn btn-danger" @click="onClick(session.id)">X</button>
+    </td>
   </tr>
 </template>
 
 <script lang="ts">
-/* type Session = {
-    id: Number
-    focalLengtd: Number
-    mount: String
-    focuser: Boolean
-    guider: Boolean
-    rotator: Boolean
-    camera: String
-    target: String
-    subExposureTime: String
-    subExposureQty: Number
-    filter: String
-    gain: String
-    offset: String
-    binning: String
-    timeStart: String
-    timeEnd: String
-}  */
+import { Component, defineComponent } from '@vue/runtime-core'
 
-export default {
+export default defineComponent({
   name: 'ImageLogRow',
   props: {
     session: Object
+  },
+  methods: {
+    onClick(id: number): void {
+      console.log('Button Click', id)
+      this.$emit('ctaDeleteSession', [id])
+    }
   }
-}
+}) as Component
 </script>
