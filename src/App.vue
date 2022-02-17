@@ -1,13 +1,15 @@
 <template>
-  <div id="nav">
-    <h1>Astrophotography Manager</h1>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/imagelog">Image Log</router-link>
-  </div>
-  <router-view />
-  <div id="footer">
-    <h4>This is a footer</h4>
+  <div class="container-fluid">
+    <div id="nav">
+      <h1>Astrophotography Manager</h1>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/imagelog">Image Log</router-link>
+    </div>
+    <router-view />
+    <div id="footer">
+      <h4>This is a footer</h4>
+    </div>
   </div>
 </template>
 
